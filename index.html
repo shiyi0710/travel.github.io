@@ -4,591 +4,664 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>途乐旅行 - 探索世界之美</title>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-54ND6KHP');</script>
-<!-- End Google Tag Manager -->
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome 图标 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Analytics 4 跟踪代码 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G2CMMX8Y73"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-G2CMMX8Y73', {
+        'send_page_view': true,
+        'anonymize_ip': true
+      });
+    </script>
+    
     <style>
-        /* 自定义动画 */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* 原有CSS样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
         }
         
-        .hover-lift {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        /* 导航栏样式 */
+        .navbar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
-        .hover-lift:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
-        /* 滚动动画 */
-        .scroll-animate {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
         }
         
-        .scroll-animate.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .nav-links {
+            display: flex;
+            list-style: none;
         }
         
-        /* 导航栏滚动效果 */
-        .nav-scrolled {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
+        .nav-links li {
+            margin-left: 2rem;
         }
         
-        /* 平滑滚动 */
-        html {
-            scroll-behavior: smooth;
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+        
+        /* 英文导航 */
+        .english-nav {
+            background-color: #f8f9fa;
+            padding: 0.5rem 5%;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .english-nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .english-nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+        
+        .english-nav a:hover {
+            color: #764ba2;
+        }
+        
+        /* 首页横幅 */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* 内容区域 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #667eea;
+        }
+        
+        /* 搜索框 */
+        .search-section {
+            background-color: #f8f9fa;
+            padding: 3rem 0;
+            margin-bottom: 4rem;
+        }
+        
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .search-form {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        
+        .search-form select, .search-form button {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .search-form button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        
+        .search-form button:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* 热门目的地 */
+        .destinations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .destination-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .destination-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .destination-info {
+            padding: 1.5rem;
+        }
+        
+        .destination-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #667eea;
+        }
+        
+        .destination-info p {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #764ba2;
+            margin-bottom: 1rem;
+        }
+        
+        .view-btn {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            border: 2px solid #667eea;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s;
+        }
+        
+        .view-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        /* 套餐 */
+        .packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .package-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .package-header {
+            padding: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .package-rating {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .package-rating span {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .package-badge {
+            background: #ffd700;
+            color: #333;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .package-title {
+            font-size: 1.3rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .package-details {
+            padding: 1rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .package-price {
+            padding: 1rem;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            margin-right: 0.5rem;
+        }
+        
+        .discount-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #764ba2;
+        }
+        
+        .book-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .book-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* 用户评价 */
+        .testimonials {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            margin: 4rem 0;
+        }
+        
+        .testimonials .section-title {
+            color: white;
+        }
+        
+        .testimonial-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .testimonial-text {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .testimonial-date {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* 底部 */
+        .footer {
+            background: #333;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-column h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: #667eea;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 0.5rem;
+            color: #ccc;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #444;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        .footer-tagline {
+            margin-top: 1rem;
+            color: #667eea;
+            font-weight: bold;
         }
     </style>
 </head>
-<body class="font-sans bg-gradient-to-b from-sky-50 to-blue-50">
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G2CMMX8Y73"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-G2CMMX8Y73');
-</script>
+<body>
     <!-- 导航栏 -->
-    <nav id="mainNav" class="fixed w-full z-50 py-4 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center cursor-pointer" onclick="scrollToSection('home')">
-                    <div class="bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-xl px-3 py-1 rounded-lg shadow-md">
-                        <i class="fas fa-globe-asia mr-1"></i> 途乐
-                    </div>
-                    <span class="ml-2 text-gray-800 font-bold text-lg hidden md:block">探索世界之美</span>
-                </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <button onclick="scrollToSection('home')" class="nav-link font-medium text-gray-700 hover:text-blue-600 transition-colors">
-                        首页
-                    </button>
-                    <button onclick="scrollToSection('destinations')" class="nav-link font-medium text-gray-700 hover:text-blue-600 transition-colors">
-                        热门目的地
-                    </button>
-                    <button onclick="scrollToSection('packages')" class="nav-link font-medium text-gray-700 hover:text-blue-600 transition-colors">
-                        精选套餐
-                    </button>
-                    <button onclick="scrollToSection('testimonials')" class="nav-link font-medium text-gray-700 hover:text-blue-600 transition-colors">
-                        用户评价
-                    </button>
-                    <button class="bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-5 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-300 hover:scale-105">
-                        免费咨询
-                    </button>
-                </div>
-                
-                <div class="md:hidden">
-                    <button id="mobileMenuBtn" class="text-gray-700 focus:outline-none" onclick="toggleMobileMenu()">
-                        <div class="w-6 h-0.5 bg-gray-800 mb-1.5 rounded-full"></div>
-                        <div class="w-6 h-0.5 bg-gray-800 mb-1.5 rounded-full"></div>
-                        <div class="w-6 h-0.5 bg-gray-800 rounded-full"></div>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 移动菜单 -->
-        <div id="mobileMenu" class="md:hidden bg-white shadow-lg hidden">
-            <div class="px-4 py-4 space-y-4">
-                <button onclick="scrollToSection('home'); toggleMobileMenu()" class="block w-full text-left text-gray-700 hover:text-blue-600 py-2">
-                    <i class="fas fa-home mr-2"></i>首页
-                </button>
-                <button onclick="scrollToSection('destinations'); toggleMobileMenu()" class="block w-full text-left text-gray-700 hover:text-blue-600 py-2">
-                    <i class="fas fa-map-marked-alt mr-2"></i>热门目的地
-                </button>
-                <button onclick="scrollToSection('packages'); toggleMobileMenu()" class="block w-full text-left text-gray-700 hover:text-blue-600 py-2">
-                    <i class="fas fa-suitcase mr-2"></i>精选套餐
-                </button>
-                <button onclick="scrollToSection('testimonials'); toggleMobileMenu()" class="block w-full text-left text-gray-700 hover:text-blue-600 py-2">
-                    <i class="fas fa-comment-dots mr-2"></i>用户评价
-                </button>
-                <button class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-5 py-2 rounded-full font-medium hover:opacity-90 transition-all">
-                    <i class="fas fa-headset mr-2"></i>免费咨询
-                </button>
-            </div>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">途乐</div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#destinations">热门目的地</a></li>
+                <li><a href="#packages">精选套餐</a></li>
+                <li><a href="#testimonials">用户评价</a></li>
+                <li><a href="#contact">免费咨询</a></li>
+            </ul>
         </div>
     </nav>
-
+    
+    <!-- 英文导航 -->
+    <div class="english-nav">
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#destinations">DESTINATIONS</a></li>
+            <li><a href="#packages">PACKAGES</a></li>
+            <li><a href="#testimonials">TESTIMONIALS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </div>
+    
     <!-- 首页横幅 -->
-    <section id="home" class="pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-to-r from-blue-500 to-cyan-600 text-white relative overflow-hidden">
-        <div class="absolute inset-0">
-            <div class="absolute inset-0 bg-black opacity-20"></div>
-            <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-white rounded-full opacity-10"></div>
-            <div class="absolute -top-20 -left-20 w-64 h-64 bg-white rounded-full opacity-10"></div>
+    <section class="hero" id="home">
+        <h1>探索世界的每一个角落</h1>
+        <p>发现独特体验，创造难忘回忆。专业定制您的完美旅程。</p>
+        <a href="#destinations" class="btn">立即规划</a>
+    </section>
+    
+    <!-- 搜索框 -->
+    <section class="search-section">
+        <div class="container">
+            <h2 class="section-title">热门路线</h2>
+            <div class="search-container">
+                <form class="search-form">
+                    <select>
+                        <option>热门目的地</option>
+                        <option>桂林</option>
+                        <option>丽江</option>
+                        <option>三亚</option>
+                        <option>敦煌</option>
+                    </select>
+                    <select>
+                        <option>出发日期</option>
+                        <option>2026年1月</option>
+                        <option>2026年2月</option>
+                        <option>2026年3月</option>
+                    </select>
+                    <select>
+                        <option>人数</option>
+                        <option>1人</option>
+                        <option>2人</option>
+                        <option>3-4人</option>
+                        <option>5人以上</option>
+                    </select>
+                    <button type="submit" style="grid-column: span 3;">搜索路线</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 热门目的地 -->
+    <section class="container" id="destinations">
+        <h2 class="section-title">热门目的地</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: #666;">
+            精选全球最受欢迎的旅游目的地，每个地方都有独特的风景和文化体验等待您探索
+        </p>
+        <div class="destinations">
+            <!-- 桂林 -->
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1552465011-b4e30bf7349d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="桂林山水" class="destination-img">
+                <div class="destination-info">
+                    <h3>桂林山水</h3>
+                    <p>甲天下的山水风光，漓江竹筏漂流体验，阳朔西街的夜生活</p>
+                    <div class="price">¥1280起</div>
+                    <a href="#" class="view-btn">查看详情</a>
+                </div>
+            </div>
+            
+            <!-- 丽江 -->
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="丽江古城" class="destination-img">
+                <div class="destination-info">
+                    <h3>丽江古城</h3>
+                    <p>纳西族文化古城，玉龙雪山脚下的人间仙境，四方街的魅力</p>
+                    <div class="price">¥1580起</div>
+                    <a href="#" class="view-btn">查看详情</a>
+                </div>
+            </div>
+            
+            <!-- 三亚 -->
+            <div class="destination-card">
+                <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" alt="三亚海滩" class="destination-img">
+                <div class="destination-info">
+                    <h3>三亚海滩</h3>
+                    <p>碧海蓝天，热带风情度假胜地，天涯海角的浪漫</p>
+                    <div class="price">¥980起</div>
+                    <a href="#" class="view-btn">查看详情</a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="#" class="btn" style="padding: 0.8rem 2rem;">浏览所有目的地</a>
+        </div>
+    </section>
+    
+    <!-- 精选套餐 -->
+    <section class="container" id="packages" style="background-color: #f8f9fa; padding: 4rem 20px;">
+        <h2 class="section-title">精选旅游套餐</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: #666;">
+            专业旅行顾问精心设计的行程，涵盖交通、住宿、景点门票，让您轻松享受完美假期
+        </p>
+        <div class="packages">
+            <!-- 云南全景7日游 -->
+            <div class="package-card">
+                <img src="https://images.unsplash.com/photo-1544441893-675973e31985?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" alt="云南全景" style="width: 100%; height: 200px; object-fit: cover;">
+                <div class="package-header">
+                    <div class="package-rating">
+                        <span>⭐ 4.8</span>
+                        <span class="package-badge">热卖中</span>
+                    </div>
+                </div>
+                <h3 class="package-title">云南全景7日游</h3>
+                <div class="package-details">
+                    7天•五星酒店<br>
+                    昆明→大理→丽江，洱海骑行，玉龙雪山，包含往返机票、精品酒店住宿
+                </div>
+                <div class="package-price">
+                    <span class="original-price">¥3999</span>
+                    <span class="discount-price">¥2999/人起</span>
+                </div>
+                <button class="book-btn">立即预订</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 用户评价 -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">旅行者的真实评价</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">
+                听听我们的客户怎么说。每一次满意的旅程，都是我们前进的动力
+            </p>
+            <div class="testimonial-card">
+                <p class="testimonial-text">
+                    "桂林之旅超出预期！导游专业热情，行程安排合理，让我们充分体验了山水之美。"
+                </p>
+                <div class="testimonial-author">王女士</div>
+                <div class="testimonial-date">2025年10月 | 桂林之旅</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 底部 -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>途乐</h3>
+                <p style="color: #ccc; line-height: 1.8;">
+                    专注高品质定制旅行，让每一次出发都成为难忘的回忆。专业团队为您打造独一无二的旅行体验。
+                </p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>热门目的地</h3>
+                <ul>
+                    <li><a href="#">云南</a></li>
+                    <li><a href="#">西藏</a></li>
+                    <li><a href="#">海南</a></li>
+                    <li><a href="#">西北</a></li>
+                    <li><a href="#">江南</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>关于我们</h3>
+                <ul>
+                    <li><a href="#">公司介绍</a></li>
+                    <li><a href="#">服务承诺</a></li>
+                    <li><a href="#">旅行顾问</a></li>
+                    <li><a href="#">合作伙伴</a></li>
+                    <li><a href="#">加入我们</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column footer-contact">
+                <h3>联系我们</h3>
+                <p>📞 400-888-9999</p>
+                <p>📧 service@tule.com</p>
+                <p>📍 北京市朝阳区建国路88号</p>
+                <p>⏰ 周一至周日 9:00-21:00</p>
+            </div>
         </div>
         
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto mb-16 fade-in-up">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6">
-                    探索世界的每一个角落
-                </h1>
-                <p class="text-xl md:text-2xl opacity-90 mb-8">
-                    发现独特体验，创造难忘回忆。专业定制您的完美旅程。
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
-                    <button onclick="scrollToSection('packages')" class="bg-white text-blue-600 font-bold px-8 py-3 rounded-full text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                        <i class="fas fa-calendar-alt mr-2"></i>立即规划
-                    </button>
-                    <button onclick="scrollToSection('destinations')" class="bg-transparent border-2 border-white text-white font-bold px-8 py-3 rounded-full text-lg hover:bg-white/10 transition-all duration-300">
-                        <i class="fas fa-route mr-2"></i>热门路线
-                    </button>
-                </div>
-            </div>
-            
-            <div class="bg-white rounded-2xl shadow-xl p-4 md:p-6 max-w-4xl mx-auto scroll-animate">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">
-                            <i class="fas fa-map-marker-alt mr-1"></i>目的地
-                        </label>
-                        <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                            <option>热门目的地</option>
-                            <option>桂林</option>
-                            <option>丽江</option>
-                            <option>三亚</option>
-                            <option>敦煌</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">
-                            <i class="fas fa-calendar mr-1"></i>出发日期
-                        </label>
-                        <input 
-                            type="date" 
-                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                            value="2026-02-15"
-                        >
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">
-                            <i class="fas fa-users mr-1"></i>人数
-                        </label>
-                        <select class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-                            <option>1人</option>
-                            <option>2人</option>
-                            <option>3-4人</option>
-                            <option>5人以上</option>
-                        </select>
-                    </div>
-                    <div class="flex items-end">
-                        <button class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold py-3 rounded-lg hover:opacity-90 transition-all duration-300 shadow-md flex items-center justify-center">
-                            <i class="fas fa-search mr-2"></i>搜索路线
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 热门目的地 -->
-    <section id="destinations" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 scroll-animate">
-                    <i class="fas fa-map-marked-alt text-blue-600 mr-2"></i>热门目的地
-                </h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto scroll-animate">
-                    精选全球最受欢迎的旅游目的地，每个地方都有独特的风景和文化体验等待您探索
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- 桂林 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 cursor-pointer hover-lift scroll-animate">
-                    <div class="relative h-64 overflow-hidden">
-                        <img 
-                            src="https://images.unsplash.com/photo-1552465011-b4e30bf7349d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" 
-                            alt="桂林山水"
-                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                            loading="lazy"
-                        >
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 text-white font-bold text-xl flex items-center">
-                            <i class="fas fa-mountain mr-2"></i>桂林山水
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-600 mb-4">甲天下的山水风光，漓江竹筏漂流体验，阳朔西街的夜生活</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-blue-600 font-medium">
-                                <i class="fas fa-tag mr-1"></i>¥1280起
-                            </span>
-                            <button class="text-blue-600 font-medium flex items-center hover:text-blue-800 transition-colors">
-                                查看详情 <i class="fas fa-arrow-right ml-1"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 丽江 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 cursor-pointer hover-lift scroll-animate">
-                    <div class="relative h-64 overflow-hidden">
-                        <img 
-                            src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" 
-                            alt="丽江古城"
-                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                            loading="lazy"
-                        >
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 text-white font-bold text-xl flex items-center">
-                            <i class="fas fa-landmark mr-2"></i>丽江古城
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-600 mb-4">纳西族文化古城，玉龙雪山脚下的人间仙境，四方街的魅力</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-blue-600 font-medium">
-                                <i class="fas fa-tag mr-1"></i>¥1580起
-                            </span>
-                            <button class="text-blue-600 font-medium flex items-center hover:text-blue-800 transition-colors">
-                                查看详情 <i class="fas fa-arrow-right ml-1"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 三亚 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 cursor-pointer hover-lift scroll-animate">
-                    <div class="relative h-64 overflow-hidden">
-                        <img 
-                            src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" 
-                            alt="三亚海滩"
-                            class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                            loading="lazy"
-                        >
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                        <div class="absolute bottom-4 left-4 text-white font-bold text-xl flex items-center">
-                            <i class="fas fa-umbrella-beach mr-2"></i>三亚海滩
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-gray-600 mb-4">碧海蓝天，热带风情度假胜地，天涯海角的浪漫</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-blue-600 font-medium">
-                                <i class="fas fa-tag mr-1"></i>¥980起
-                            </span>
-                            <button class="text-blue-600 font-medium flex items-center hover:text-blue-800 transition-colors">
-                                查看详情 <i class="fas fa-arrow-right ml-1"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <button class="bg-white border-2 border-blue-600 text-blue-600 font-bold px-8 py-3 rounded-full hover:bg-blue-50 transition-all duration-300 scroll-animate">
-                    <i class="fas fa-compass mr-2"></i>浏览所有目的地
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- 精选套餐 -->
-    <section id="packages" class="py-20 bg-gradient-to-b from-blue-50 to-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 scroll-animate">
-                    <i class="fas fa-gift text-blue-600 mr-2"></i>精选旅游套餐
-                </h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto scroll-animate">
-                    专业旅行顾问精心设计的行程，涵盖交通、住宿、景点门票，让您轻松享受完美假期
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- 云南套餐 -->
-                <div class="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-300 border border-gray-100 hover-lift scroll-animate">
-                    <div class="relative h-48 overflow-hidden">
-                        <img 
-                            src="https://images.unsplash.com/photo-1544441893-675973e31985?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300&q=80" 
-                            alt="云南全景7日游"
-                            class="w-full h-full object-cover"
-                            loading="lazy"
-                        >
-                        <div class="absolute top-3 right-3 bg-yellow-400 text-yellow-900 font-bold px-2 py-1 rounded-full text-sm flex items-center">
-                            <i class="fas fa-star mr-1"></i> 4.8
-                        </div>
-                        <div class="absolute bottom-3 left-3 bg-blue-600 text-white text-xs px-2 py-1 rounded">
-                            热卖中
-                        </div>
-                    </div>
-                    <div class="p-5">
-                        <h3 class="font-bold text-xl text-gray-900 mb-2">云南全景7日游</h3>
-                        <div class="flex items-center text-gray-600 mb-3">
-                            <span><i class="fas fa-calendar-day mr-1"></i>7天</span>
-                            <span class="mx-2">•</span>
-                            <span><i class="fas fa-hotel mr-1"></i>五星酒店</span>
-                        </div>
-                        <p class="text-gray-600 mb-4 text-sm">
-                            昆明→大理→丽江，洱海骑行，玉龙雪山，包含往返机票、精品酒店住宿
-                        </p>
-                        <div class="flex justify-between items-center mt-4 pt-3 border-t border-gray-100">
-                            <div>
-                                <span class="text-gray-500 line-through text-sm">¥3999</span>
-                                <span class="text-2xl font-bold text-blue-600 ml-2">¥2999</span>
-                                <div class="text-gray-500 text-xs mt-1">/人起</div>
-                            </div>
-                            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors">
-                                立即预订
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 用户评价 -->
-    <section id="testimonials" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 scroll-animate">
-                    <i class="fas fa-comments text-blue-600 mr-2"></i>旅行者的真实评价
-                </h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto scroll-animate">
-                    听听我们的客户怎么说。每一次满意的旅程，都是我们前进的动力
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100 hover-lift scroll-animate">
-                    <div class="flex mb-4">
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                    </div>
-                    <p class="text-gray-700 mb-6 italic">"桂林之旅超出预期！导游专业热情，行程安排合理，让我们充分体验了山水之美。"</p>
-                    <div class="flex items-center">
-                        <div class="bg-blue-100 text-blue-800 font-bold w-10 h-10 rounded-full flex items-center justify-center mr-3">
-                            王
-                        </div>
-                        <div>
-                            <div class="font-bold text-gray-900">王女士</div>
-                            <div class="text-sm text-gray-500">2025年10月 | 桂林之旅</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 页脚 -->
-    <footer class="bg-gray-900 text-white pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center mb-4">
-                        <div class="bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold text-xl px-3 py-1 rounded-lg">
-                            <i class="fas fa-globe-asia mr-1"></i> 途乐
-                        </div>
-                    </div>
-                    <p class="text-gray-400 mb-4">
-                        专注高品质定制旅行，让每一次出发都成为难忘的回忆。专业团队为您打造独一无二的旅行体验。
-                    </p>
-                    <div class="flex space-x-4">
-                        <button class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
-                            <i class="fab fa-weixin"></i>
-                        </button>
-                        <button class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
-                            <i class="fab fa-weibo"></i>
-                        </button>
-                        <button class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
-                            <i class="fas fa-envelope"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-bold mb-4">热门目的地</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li class="hover:text-white cursor-pointer transition-colors flex items-center">
-                            <i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i>云南
-                        </li>
-                        <li class="hover:text-white cursor-pointer transition-colors flex items-center">
-                            <i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i>西藏
-                        </li>
-                        <li class="hover:text-white cursor-pointer transition-colors flex items-center">
-                            <i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i>海南
-                        </li>
-                        <li class="hover:text-white cursor-pointer transition-colors flex items-center">
-                            <i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i>西北
-                        </li>
-                        <li class="hover:text-white cursor-pointer transition-colors flex items-center">
-                            <i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i>江南
-                        </li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-bold mb-4">关于我们</h3>
-                    <ul class="space-y-2 text-gray-400">
-                        <li class="hover:text-white cursor-pointer transition-colors flex items-center">
-                            <i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i>公司介绍
-                        </li>
-                        <li class="hover:text-white cursor-pointer transition-colors flex items-center">
-                            <i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i>服务承诺
-                        </li>
-                        <li class="hover:text-white cursor-pointer transition-colors flex items-center">
-                            <i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i>旅行顾问
-                        </li>
-                        <li class="hover:text-white cursor-pointer transition-colors flex items-center">
-                            <i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i>合作伙伴
-                        </li>
-                        <li class="hover:text-white cursor-pointer transition-colors flex items-center">
-                            <i class="fas fa-chevron-right text-blue-500 text-xs mr-2"></i>加入我们
-                        </li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-bold mb-4">联系我们</h3>
-                    <ul class="space-y-3 text-gray-400">
-                        <li class="flex items-start">
-                            <i class="fas fa-map-marker-alt mr-2 mt-1 text-blue-400"></i>
-                            <span>北京市朝阳区建国路88号</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-phone mr-2 text-blue-400"></i>
-                            <span>400-888-9999</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope mr-2 text-blue-400"></i>
-                            <span>service@tule.com</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-clock mr-2 text-blue-400"></i>
-                            <span>周一至周日 9:00-21:00</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-                <p>© 2026 途乐旅行. 保留所有权利. 京ICP备12345678号</p>
-                <p class="mt-2">专业定制旅行 | 高品质服务 | 无忧售后保障</p>
-            </div>
+        <div class="footer-bottom">
+            <p>© 2026 途乐旅行. 保留所有权利. 京ICP备12345678号</p>
+            <p class="footer-tagline">专业定制旅行 | 高品质服务 | 无忧售后保障</p>
         </div>
     </footer>
-
-    <script>
-        // 初始化页面
-        document.addEventListener('DOMContentLoaded', function() {
-            // 初始滚动动画
-            initScrollAnimation();
-            
-            // 滚动监听
-            window.addEventListener('scroll', handleScroll);
-            
-            // 初始设置导航栏
-            updateNavbar();
-            
-            // 设置今日日期为默认出发日期
-            const today = new Date();
-            const tomorrow = new Date(today);
-            tomorrow.setDate(tomorrow.getDate() + 1);
-            const dateInput = document.querySelector('input[type="date"]');
-            if (dateInput) {
-                dateInput.min = tomorrow.toISOString().split('T')[0];
-                dateInput.value = tomorrow.toISOString().split('T')[0];
-            }
-        });
-        
-        // 滚动到指定部分
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-        
-        // 处理滚动 - ✅ 修正了这里的语法
-        function handleScroll() {
-            updateNavbar();
-            checkScrollAnimation();
-        }
-        
-        // 更新导航栏样式
-        function updateNavbar() {
-            const nav = document.getElementById('mainNav');
-            if (window.scrollY > 20) {
-                nav.classList.add('nav-scrolled');
-            } else {
-                nav.classList.remove('nav-scrolled');
-            }
-        }
-        
-        // 检查滚动动画
-        function checkScrollAnimation() {
-            const elements = document.querySelectorAll('.scroll-animate');
-            elements.forEach(element => {
-                const position = element.getBoundingClientRect();
-                if (position.top < window.innerHeight - 100) {
-                    element.classList.add('visible');
-                }
-            });
-        }
-        
-        // 初始化滚动动画
-        function initScrollAnimation() {
-            // 立即检查可见元素
-            setTimeout(checkScrollAnimation, 100);
-        }
-        
-        // 切换移动菜单
-        function toggleMobileMenu() {
-            const mobileMenu = document.getElementById('mobileMenu');
-            mobileMenu.classList.toggle('hidden');
-        }
-        
-        // 搜索路线功能
-        function searchRoutes() {
-            const destination = document.querySelector('select').value;
-            const date = document.querySelector('input[type="date"]').value;
-            const people = document.querySelectorAll('select')[1].value;
-            
-            if (destination === '热门目的地') {
-                alert('请选择目的地');
-                return;
-            }
-            
-            alert(`正在搜索 ${destination} 的路线...\n出发日期: ${date}\n人数: ${people}`);
-            // 实际项目中这里会跳转到搜索结果页面
-        }
-    </script>
 </body>
-
 </html>
-
-
-
